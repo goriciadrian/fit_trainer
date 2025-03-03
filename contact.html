@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto; /* Permite derularea verticală */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('home_personal_trainer.webp') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(30px); /* Aplică blur pe fundal */
+    opacity: 1;
+    z-index: -1; /* Asigură că fundalul rămâne în spate */
+}
+
+.foreground {
+    position: relative;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
+    z-index: 2; /* Asigură-te că textul este deasupra imaginii de fundal */
+    max-width: 90%;
+    margin-top: 120px; /* Lasă loc pentru secțiunile fixe din partea de sus */
+    margin-bottom: 40px; /* Crează un mic spațiu sub text pentru imagini */
+}
+
+.sections {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Centrează secțiunile orizontal */
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.7); /* Adăugăm un fundal ușor transparent */
+    padding: 10px 0;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: #333;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+}
+
+.section:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Centrează imaginile */
+    gap: 20px; /* Redu distanța dintre imagini */
+    padding-top: 20px; /* Adăugăm un spațiu între text și imagini */
+    flex-wrap: wrap; /* Permite imaginilor să se potrivească mai bine pe ecrane mici */
+    margin-bottom: 30px; /* Crează un spațiu la final */
+}
+
+.image-container img {
+    width: 200px; /* Lățime fixă pentru imagini */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="foreground">
+        <h1>Contact</h1>
+        <p>Vrei să îți transformi stilul de viață și să descoperi bucuria mișcării?</p>
+        <p>Hai să lucrăm împreună pentru a atinge obiectivele tale de fitness!</p>
+        <p>Fie că ești la început de drum sau vrei să îți duci antrenamentele la nivelul următor, sunt aici să te ghidez.</p>
+        <p>Și hai să stabilim o sesiune de antrenament personalizat!</p>
+        <p>Scrie-mi un mesaj pe Instagram la @adi_g_fit_trainer. Nu strica sa dai și un "Follow"</p>
+    </div>
+    <div class="sections">
+        <a href="../index.html" class="section">ACASA</a>
+        <a href="../despre_mine/despre_mine.html" class="section">Despre mine</a>        
+        <a href="../portofoliu_antrenamente/portofoliu.html" class="section">Portofoliu antrenamente</a>
+        <a href="../colabs/colabs.html" class="section">Colaboratori</a>
+        <a href="../contact/contact.html" class="section">Contact</a>
+    </div>
+    <div class="image-container">
+        <a href="https://www.instagram.com/adi_g_fit_trainer/?igsh=MWZpdWwwbDliczhwcg%3D%3D&utm_source=qr#" target="_blank">
+            <img src="./contact.webp" alt="Contact Instagram">
+        </a>
+    </div>
+</body>
+</html>
+

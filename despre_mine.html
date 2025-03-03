@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despre mine</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrează pe axa verticală */
+    justify-content: flex-start; /* Permite derularea paginii */
+    overflow-y: auto; /* Permite derularea verticală */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('home_personal_trainer.webp') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(30px); /* Aplică blur pe fundal */
+    opacity: 1;
+    z-index: -1; /* Asigură că fundalul rămâne în spate */
+}
+
+.foreground {
+    position: relative;
+    text-align: center;
+    font-size: 1.5rem;
+    opacity: 1;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
+    z-index: 2; /* Asigură-te că textul este deasupra imaginii de fundal */
+    max-width: 90%;
+    margin-top: 120px; /* Lasă loc pentru secțiunile fixe din partea de sus */
+    margin-bottom: 40px; /* Crează un mic spațiu sub text pentru imagini */
+}
+
+.sections {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Centrează secțiunile orizontal */
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.7); /* Adăugăm un fundal ușor transparent */
+    padding: 10px 0;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: #333;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+}
+
+.section:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Centrează imaginile */
+    gap: 20px; /* Redu distanța dintre imagini */
+    padding-top: 20px; /* Adăugăm un spațiu între text și imagini */
+    flex-wrap: wrap; /* Permite imaginilor să se potrivească mai bine pe ecrane mici */
+    margin-bottom: 30px; /* Crează un spațiu la final */
+}
+
+.image-container img {
+    width: 200px; /* Lățime fixă pentru imagini */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="foreground">
+        <h1>Transformă-ți viața cu AdiFit Trainer</h1>
+        <p>Salut! Sunt Adi, un antrenor personal certificat la nivel internațional, cu peste 10 ani de experiență în fitness și bodybuilding.</p>
+        <p>Cred cu tărie că mișcarea este cheia unei vieți echilibrate, iar sportul nu înseamnă doar efort – ci și bucurie, energie și sănătate.</p>
+        <p>Iți voi oferi inspirație pentru un stil de viață activ, antrenamente eficiente și sfaturi despre nutriție.</p>
+        <p>Promovez mișcarea în aer liber, pentru că natura este cea mai bună sală de sport.</p>
+        <p>Indiferent dacă ești la început de drum sau vrei să îți îmbunătățești performanțele,</p>
+        <p>sunt aici să te ajut să-ți atingi obiectivele.</p>
+    </div>
+    <div class="sections">
+        <a href="./home.html" class="section">ACASA</a>
+        <a href="./despre_mine.html" class="section">Despre mine</a>        
+        <a href="./portofoliu.html" class="section">Portofoliu antrenamente</a>
+        <a href="./colabs.html" class="section">Colaboratori</a>
+        <a href="./contact.html" class="section">Contact</a>
+    </div>
+    <div class="image-container">
+        <img src="./despre_mine.webp" alt="Adi 1">
+        <img src="./rsz_despre_mine2.jpg" alt="Adi 2">
+        <img src="./rsz_1despre_mine3.jpg" alt="Adi 3">
+    </div>
+</body>
+</html>
+
