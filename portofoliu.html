@@ -103,32 +103,32 @@
 
         /* MEDIA QUERIES - Optimizări pentru mobil */
         @media (max-width: 768px) {
-            body {
-                padding-top: 100px;
-            }
+    .foreground {
+        font-size: 1.0rem; /* Reduce dimensiunea fontului pe mobil */
+        margin-top: 200px; /* Mai mult spațiu sub meniu */
+    }
 
-            .foreground {
-                font-size: 1.1rem;
-                max-width: 95%;
-                padding: 15px;
-            }
+    .sections {
+        flex-direction: column;
+        align-items: center; /* Centrează meniul pe mobil */
+        padding: 0px 0;
+    }
 
-            .sections {
-                flex-direction: column;
-                align-items: center;
-                padding: 10px 0;
-            }
+    .section {
+        width: 50%; /* Face butoanele mai mari pe mobil */
+        text-align: center;
+        padding: 5px;
+    }
 
-            .section {
-                width: 80%;
-                padding: 12px;
-                font-size: 1rem;
-            }
+    .image-container {
+        flex-direction: column; /* Afișează imaginile pe verticală */
+        align-items: center;
+    }
 
-            .image-container img {
-                max-width: 90%;
-            }
-        }
+    .image-container img {
+        max-width: 90%; /* Redimensionează imaginile pentru a evita marginile */
+    }
+}
     </style>
 </head>
 <body>
