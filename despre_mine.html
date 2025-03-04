@@ -20,9 +20,8 @@ body {
     overflow-y: auto;
 }
 
-/* Fundalul blurat */
 .background {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -34,7 +33,7 @@ body {
     z-index: -1;
 }
 
-/* Meniul fix rămâne sus */
+/* Meniul apare imediat */
 .sections {
     position: fixed;
     top: 0;
@@ -67,24 +66,37 @@ body {
     background: rgba(255, 255, 255, 1);
 }
 
-/* Conținutul paginii începe sub secțiuni */
-.container {
-    margin-top: 80px; /* Asigură că textul nu acoperă secțiunile */
+/* Titlul apare DUPĂ meniul fix */
+h1 {
     text-align: center;
-    width: 90%;
-    max-width: 800px;
+    font-size: 2rem;
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards;
-    animation-delay: 1.5s; /* Apare după meniul fix */
+    animation-delay: 1.5s; /* Apare la 1.5 secunde după meniu */
 }
 
-/* Animație pentru apariția textului */
+/* Restul textului apare după titlu */
+.foreground {
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
+    z-index: 2;
+    max-width: 90%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    opacity: 0; /* Inițial ascuns */
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 2.5s; /* Apare la 2.5 secunde după meniu */
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Imaginile sunt centrate și responsive */
 .image-container {
     display: flex;
     justify-content: center;
@@ -105,6 +117,15 @@ body {
 
 /* MEDIA QUERIES - Adaptări pentru mobil */
 @media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .foreground {
+        font-size: 1.1rem;
+        margin-top: 30px;
+    }
+
     .sections {
         flex-direction: column;
         align-items: center;
@@ -117,11 +138,6 @@ body {
         padding: 12px;
     }
 
-    .container {
-        margin-top: 100px; /* Mai mult spațiu pentru mobil */
-        font-size: 1.1rem;
-    }
-
     .image-container {
         flex-direction: column;
         align-items: center;
@@ -131,13 +147,12 @@ body {
         max-width: 90%;
     }
 }
-
     </style>
 </head>
 <body>
     <div class="background"></div>
 
-    <!-- Meniul fix apare imediat -->
+    <!-- Meniul apare imediat -->
     <div class="sections">
         <a href="./home.html" class="section">ACASA</a>
         <a href="./despre_mine.html" class="section">Despre mine</a>        
@@ -146,9 +161,11 @@ body {
         <a href="./contact.html" class="section">Contact</a>
     </div>
 
-    <!-- Conținutul paginii apare sub secțiuni -->
-    <div class="container">
-        <h1>Transformă-ți viața cu AdiFit Trainer</h1>
+    <!-- Titlul apare DUPĂ ce meniul este afișat -->
+    <h1>Transformă-ți viața cu AdiFit Trainer</h1>
+
+    <!-- Restul textului apare după titlu -->
+    <div class="foreground">
         <p>Salut! Sunt Adi, un antrenor personal certificat la nivel internațional, cu peste 10 ani de experiență în fitness și bodybuilding.</p>
         <p>Cred cu tărie că mișcarea este cheia unei vieți echilibrate, iar sportul nu înseamnă doar efort – ci și bucurie, energie și sănătate.</p>
         <p>Iți voi oferi inspirație pentru un stil de viață activ, antrenamente eficiente și sfaturi despre nutriție.</p>
