@@ -6,20 +6,27 @@
     <title>Personal Trainer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
-        
-        body {
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
             height: 100vh;
             background: black;
             font-family: Arial, sans-serif;
             color: white;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            overflow: auto; /* Permite derularea */
+            text-align: center;
+            padding: 20px;
         }
+
         .background {
             position: fixed;
             top: 0;
@@ -32,56 +39,54 @@
             opacity: 0;
             animation: showClear 2s ease-in-out forwards, blurEffect 2s ease-in-out forwards 7s;
         }
+
         .foreground {
-            position: absolute;
-            text-align: center;
-            font-size: 1.5rem;
+            position: relative;
+            font-size: 1.3rem; /* Dimensiune mai mică pentru mobil */
             opacity: 0;
             animation: textFadeIn 3s ease-in-out forwards 9s, textFadeOut 2s ease-in-out forwards 14s;
             color: white;
             text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
+            max-width: 90%;
+            padding: 20px;
         }
-        .sections {
-            position: absolute;
-            display: flex;
-            gap: 20px;
-            opacity: 0;
-            animation: sectionsFadeIn 2s ease-in-out forwards 16s;
-        }
-        .section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px 30px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            color: #333;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-        }
-        .section:hover {
-            background: rgba(255, 255, 255, 1);
-        }
+
         @keyframes showClear {
             from { opacity: 0; filter: blur(0); }
             to { opacity: 1; filter: blur(0); }
         }
+
         @keyframes blurEffect {
             from { filter: blur(0); }
-            to { filter: blur(18px); }
+            to { filter: blur(15px); } /* Redus pentru performanță mai bună */
         }
+
         @keyframes textFadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         @keyframes textFadeOut {
             from { opacity: 1; transform: translateY(0); }
             to { opacity: 0; transform: translateY(-20px); }
         }
-        @keyframes sectionsFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        /* MEDIA QUERIES - Optimizări pentru mobil */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                padding: 10px;
+            }
+
+            .foreground {
+                font-size: 1.1rem; /* Ajustat pentru ecrane mici */
+                max-width: 95%;
+                padding: 15px;
+            }
+
+            .background {
+                filter: blur(12px); /* Blur mai mic pentru performanță mai bună */
+            }
         }
     </style>
 </head>
@@ -93,7 +98,7 @@
     </div>
     <script>
         // Setăm timpul de finalizare al animațiilor (în milisecunde)
-        const animationDuration = 16000; // 16 secunde
+        const animationDuration = 16000; // 11 secunde
 
         // După ce s-au terminat animațiile, redirecționăm spre pagina home.html
         setTimeout(() => {

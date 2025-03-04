@@ -5,119 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofoliu antrenamente</title>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
 
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh; /* Permite extinderea paginii în funcție de conținut */
-    background: black;
-    font-family: Arial, sans-serif;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrează pe axa verticală */
-    justify-content: flex-start; /* Centrează pe axa orizontală, la început */
-    overflow-y: auto; /* Permite derularea paginii */
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('home_personal_trainer.webp') no-repeat center center fixed;
-    background-size: cover;
-    filter: blur(30px); /* Aplică blur pe fundal */
-    opacity: 1;
-    z-index: -1; /* Asigură că fundalul rămâne în spate */
-}
+        body {
+            min-height: 100vh;
+            background: black;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-y: auto;
+            padding-top: 70px; /* Spațiu pentru a evita suprapunerea cu meniul */
+        }
 
-.foreground {
-    position: relative;
-    text-align: center;
-    font-size: 1.5rem;
-    opacity: 1;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
-    z-index: 2; /* Asigură-te că textul este deasupra imaginilor */
-    max-width: 90%; /* Asigură o lățime maximă pentru text */
-    margin-top: 120px; /* Lasă spațiu sub secțiunile fixe */
-    margin-bottom: 40px; /* Adăugăm un mic spațiu sub text pentru imagini */
-}
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('home_personal_trainer.webp') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(25px);
+            opacity: 1;
+            z-index: -1;
+        }
 
-.sections {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    justify-content: center; /* Centrează secțiunile orizontal */
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.7); /* Adăugăm un fundal ușor transparent */
-    padding: 10px 0;
-}
+        .foreground {
+            position: relative;
+            text-align: center;
+            font-size: 1.3rem;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
+            z-index: 2;
+            max-width: 90%;
+            padding: 20px;
+        }
 
-.section {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 15px 30px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-    color: #333;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
-}
+        .sections {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+        }
 
-.section:hover {
-    background: rgba(255, 255, 255, 1);
-}
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: #333;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            text-align: center;
+        }
 
-.image-container {
-    display: flex;
-    justify-content: center; /* Centrează imaginile */
-    gap: 20px; /* Redu distanța dintre imagini */
-    padding-top: 20px; /* Adăugăm un spațiu între text și imagini */
-    z-index: 2;
-    flex-wrap: wrap; /* Permite imaginilor să se potrivească mai bine pe ecrane mici */
-    margin-bottom: 30px; /* Crează un spațiu la final */
-}
+        .section:hover {
+            background: rgba(255, 255, 255, 1);
+        }
 
-.image-container img {
-    width: 200px; /* Lățime fixă pentru imagini */
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-}
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding-top: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* MEDIA QUERIES - Optimizări pentru mobil */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 100px;
+            }
+
+            .foreground {
+                font-size: 1.1rem;
+                max-width: 95%;
+                padding: 15px;
+            }
+
+            .sections {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+            }
+
+            .section {
+                width: 80%;
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            .image-container img {
+                max-width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="background"></div>
-    <div class="foreground">
-        <h1>Portofoliu antrenamente</h1>
-        <h3>Antrenamente în aer liber</h3>
-        <p>Dacă vrei să te menții în formă, să te bucuri de natură și să îți depășești limitele,</p>
-        <p>te invit la antrenamente dinamice în aer liber!</p>
-        <p>Mișcarea nu are nevoie de o sală – doar de voință și un spațiu deschis!</p>
-        <p>Hai să lucrăm împreună pentru un corp sănătos și plin de energie!</p>
-    <div class="image-container">
-        <img src="./aer-liber2.webp" alt="Aer liber 1">
-        <img src="./aer-liber3.webp" alt="Aer liber 2">
-    </div>
-        <h3>Antrenamente în sala de forță GIG ZONE FITNESS</h3>
-        <p>Antrenează-te alături de mine la GIG ZONE FITNESS!</p>
-        <p>Dacă vrei să îți construiești forța, să îți modelezi corpul și să îți depășești limitele,</p>
-        <p>te aștept la GIG ZONE FITNESS, în Arad, pe strada Câmpul Liniștii, în curtea CBA.</p>
-            <div class="image-container">
-        <img src="./sala1.webp" alt="Sala 1">
-        <img src="./sala2.webp" alt="Sala 2">
-            </div>
-    </div>
     <div class="sections">
         <a href="./home.html" class="section">ACASA</a>
         <a href="./despre_mine.html" class="section">Despre mine</a>        
@@ -125,8 +140,31 @@ body {
         <a href="./colabs.html" class="section">Colaboratori</a>
         <a href="./contact.html" class="section">Contact</a>
     </div>
-    <!-- Imaginile sunt acum plasate sub textul principal -->
 
+    <div class="foreground">
+        <h1>Portofoliu antrenamente</h1>
+
+        <h3>Antrenamente în aer liber</h3>
+        <p>Dacă vrei să te menții în formă, să te bucuri de natură și să îți depășești limitele,</p>
+        <p>te invit la antrenamente dinamice în aer liber!</p>
+        <p>Mișcarea nu are nevoie de o sală – doar de voință și un spațiu deschis!</p>
+        <p>Hai să lucrăm împreună pentru un corp sănătos și plin de energie!</p>
+
+        <div class="image-container">
+            <img src="./aer-liber2.webp" alt="Aer liber 1">
+            <img src="./aer-liber3.webp" alt="Aer liber 2">
+        </div>
+
+        <h3>Antrenamente în sala de forță GIG ZONE FITNESS</h3>
+        <p>Antrenează-te alături de mine la GIG ZONE FITNESS!</p>
+        <p>Dacă vrei să îți construiești forța, să îți modelezi corpul și să îți depășești limitele,</p>
+        <p>te aștept la GIG ZONE FITNESS, în Arad, pe strada Câmpul Liniștii, în curtea CBA.</p>
+
+        <div class="image-container">
+            <img src="./sala1.webp" alt="Sala 1">
+            <img src="./sala2.webp" alt="Sala 2">
+        </div>
+    </div>
 </body>
 </html>
 

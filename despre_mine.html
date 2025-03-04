@@ -36,7 +36,7 @@ body {
 .foreground {
     position: relative;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Redus pentru ecrane mici */
     opacity: 1;
     color: white;
     text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
@@ -44,6 +44,7 @@ body {
     max-width: 90%;
     margin-top: 120px; /* Lasă loc pentru secțiunile fixe din partea de sus */
     margin-bottom: 40px; /* Crează un mic spațiu sub text pentru imagini */
+    padding: 0 10px; /* Evită tăierea textului pe ecrane mici */
 }
 
 .sections {
@@ -52,16 +53,17 @@ body {
     left: 0;
     width: 100%;
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap; /* Permite meniu pe mai multe rânduri pe mobil */
+    gap: 10px;
     justify-content: center; /* Centrează secțiunile orizontal */
     z-index: 2;
     background: rgba(0, 0, 0, 0.7); /* Adăugăm un fundal ușor transparent */
-    padding: 10px 0;
+    padding: 8px 0;
 }
 
 .section {
     background: rgba(255, 255, 255, 0.9);
-    padding: 15px 30px;
+    padding: 10px 20px; /* Micșorate pentru a încăpea pe ecrane mici */
     border-radius: 10px;
     text-transform: uppercase;
     text-decoration: none;
@@ -70,7 +72,7 @@ body {
     transition: background 0.3s;
     color: #333;
     font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem; /* Micșorat pentru ecrane mici */
 }
 
 .section:hover {
@@ -80,18 +82,50 @@ body {
 .image-container {
     display: flex;
     justify-content: center; /* Centrează imaginile */
-    gap: 20px; /* Redu distanța dintre imagini */
+    gap: 10px; /* Redu distanța dintre imagini */
     padding-top: 20px; /* Adăugăm un spațiu între text și imagini */
     flex-wrap: wrap; /* Permite imaginilor să se potrivească mai bine pe ecrane mici */
     margin-bottom: 30px; /* Crează un spațiu la final */
+    width: 100%; /* Face ca imaginile să se adapteze la ecran */
 }
 
 .image-container img {
-    width: 200px; /* Lățime fixă pentru imagini */
+    width: 100%; /* Imaginile se ajustează la dimensiunea ecranului */
+    max-width: 250px; /* Setează un maxim pentru imagini */
     height: auto;
     border-radius: 10px;
     object-fit: cover;
 }
+
+/* MEDIA QUERIES - Adaptări pentru mobil */
+@media (max-width: 768px) {
+    .foreground {
+        font-size: 1.1rem; /* Reduce dimensiunea fontului pe mobil */
+        margin-top: 140px; /* Mai mult spațiu sub meniu */
+    }
+
+    .sections {
+        flex-direction: column;
+        align-items: center; /* Centrează meniul pe mobil */
+        padding: 10px 0;
+    }
+
+    .section {
+        width: 80%; /* Face butoanele mai mari pe mobil */
+        text-align: center;
+        padding: 12px;
+    }
+
+    .image-container {
+        flex-direction: column; /* Afișează imaginile pe verticală */
+        align-items: center;
+    }
+
+    .image-container img {
+        max-width: 90%; /* Redimensionează imaginile pentru a evita marginile */
+    }
+}
+
     </style>
 </head>
 <body>
