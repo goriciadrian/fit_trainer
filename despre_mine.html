@@ -15,8 +15,8 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrează pe axa verticală */
-    justify-content: flex-start; /* Permite derularea paginii */
+    align-items: center;
+    justify-content: flex-start;
     overflow-y: auto; /* Permite derularea verticală */
 }
 
@@ -28,23 +28,9 @@ body {
     height: 100%;
     background: url('home_personal_trainer.webp') no-repeat center center fixed;
     background-size: cover;
-    filter: blur(30px); /* Aplică blur pe fundal */
+    filter: blur(30px);
     opacity: 1;
-    z-index: -1; /* Asigură că fundalul rămâne în spate */
-}
-
-.foreground {
-    position: relative;
-    text-align: center;
-    font-size: 1.3rem; /* Redus pentru ecrane mici */
-    opacity: 1;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
-    z-index: 2; /* Asigură-te că textul este deasupra imaginii de fundal */
-    max-width: 90%;
-    margin-top: 120px; /* Lasă loc pentru secțiunile fixe din partea de sus */
-    margin-bottom: 40px; /* Crează un mic spațiu sub text pentru imagini */
-    padding: 0 10px; /* Evită tăierea textului pe ecrane mici */
+    z-index: -1;
 }
 
 .sections {
@@ -53,17 +39,17 @@ body {
     left: 0;
     width: 100%;
     display: flex;
-    flex-wrap: wrap; /* Permite meniu pe mai multe rânduri pe mobil */
+    flex-wrap: wrap;
     gap: 10px;
-    justify-content: center; /* Centrează secțiunile orizontal */
+    justify-content: center;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.7); /* Adăugăm un fundal ușor transparent */
-    padding: 8px 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
 }
 
 .section {
     background: rgba(255, 255, 255, 0.9);
-    padding: 10px 20px; /* Micșorate pentru a încăpea pe ecrane mici */
+    padding: 10px 20px;
     border-radius: 10px;
     text-transform: uppercase;
     text-decoration: none;
@@ -72,26 +58,48 @@ body {
     transition: background 0.3s;
     color: #333;
     font-family: 'Oswald', sans-serif;
-    font-size: 1rem; /* Micșorat pentru ecrane mici */
+    font-size: 1rem;
 }
 
 .section:hover {
     background: rgba(255, 255, 255, 1);
 }
 
+/* Inițial, ascundem textul și îl afișăm treptat */
+.foreground {
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
+    z-index: 2;
+    max-width: 90%;
+    padding: 20px;
+    margin-top: 120px;
+    margin-bottom: 40px;
+    opacity: 0; /* Inițial ascuns */
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 1.5s; /* Apare după meniul fix */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .image-container {
     display: flex;
-    justify-content: center; /* Centrează imaginile */
-    gap: 10px; /* Redu distanța dintre imagini */
-    padding-top: 20px; /* Adăugăm un spațiu între text și imagini */
-    flex-wrap: wrap; /* Permite imaginilor să se potrivească mai bine pe ecrane mici */
-    margin-bottom: 30px; /* Crează un spațiu la final */
-    width: 100%; /* Face ca imaginile să se adapteze la ecran */
+    justify-content: center;
+    gap: 10px;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    width: 100%;
 }
 
 .image-container img {
-    width: 100%; /* Imaginile se ajustează la dimensiunea ecranului */
-    max-width: 250px; /* Setează un maxim pentru imagini */
+    width: 100%;
+    max-width: 250px;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
@@ -100,29 +108,29 @@ body {
 /* MEDIA QUERIES - Adaptări pentru mobil */
 @media (max-width: 768px) {
     .foreground {
-        font-size: 1.1rem; /* Reduce dimensiunea fontului pe mobil */
-        margin-top: 140px; /* Mai mult spațiu sub meniu */
+        font-size: 1.1rem;
+        margin-top: 140px;
     }
 
     .sections {
         flex-direction: column;
-        align-items: center; /* Centrează meniul pe mobil */
+        align-items: center;
         padding: 10px 0;
     }
 
     .section {
-        width: 80%; /* Face butoanele mai mari pe mobil */
+        width: 80%;
         text-align: center;
         padding: 12px;
     }
 
     .image-container {
-        flex-direction: column; /* Afișează imaginile pe verticală */
+        flex-direction: column;
         align-items: center;
     }
 
     .image-container img {
-        max-width: 90%; /* Redimensionează imaginile pentru a evita marginile */
+        max-width: 90%;
     }
 }
 
@@ -130,6 +138,15 @@ body {
 </head>
 <body>
     <div class="background"></div>
+    
+    <div class="sections">
+        <a href="./home.html" class="section">ACASA</a>
+        <a href="./despre_mine.html" class="section">Despre mine</a>        
+        <a href="./portofoliu.html" class="section">Portofoliu antrenamente</a>
+        <a href="./colabs.html" class="section">Colaboratori</a>
+        <a href="./contact.html" class="section">Contact</a>
+    </div>
+
     <div class="foreground">
         <h1>Transformă-ți viața cu AdiFit Trainer</h1>
         <p>Salut! Sunt Adi, un antrenor personal certificat la nivel internațional, cu peste 10 ani de experiență în fitness și bodybuilding.</p>
@@ -139,13 +156,7 @@ body {
         <p>Indiferent dacă ești la început de drum sau vrei să îți îmbunătățești performanțele,</p>
         <p>sunt aici să te ajut să-ți atingi obiectivele.</p>
     </div>
-    <div class="sections">
-        <a href="./home.html" class="section">ACASA</a>
-        <a href="./despre_mine.html" class="section">Despre mine</a>        
-        <a href="./portofoliu.html" class="section">Portofoliu antrenamente</a>
-        <a href="./colabs.html" class="section">Colaboratori</a>
-        <a href="./contact.html" class="section">Contact</a>
-    </div>
+
     <div class="image-container">
         <img src="./despre_mine.webp" alt="Adi 1">
         <img src="./rsz_despre_mine2.jpg" alt="Adi 2">
@@ -153,4 +164,3 @@ body {
     </div>
 </body>
 </html>
-
