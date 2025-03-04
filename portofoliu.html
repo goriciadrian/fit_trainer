@@ -5,124 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofoliu antrenamente</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrează pe axa verticală */
+    justify-content: flex-start; /* Permite derularea paginii */
+    overflow-y: auto; /* Permite derularea verticală */
+}
 
-        body {
-            min-height: 100vh;
-            background: black;
-            font-family: Arial, sans-serif;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            overflow-y: auto;
-            padding-top: 70px; /* Spațiu pentru a evita suprapunerea cu meniul */
-        }
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('home_personal_trainer.webp') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(30px); /* Aplică blur pe fundal */
+    opacity: 1;
+    z-index: -1; /* Asigură că fundalul rămâne în spate */
+}
 
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('home_personal_trainer.webp') no-repeat center center fixed;
-            background-size: cover;
-            filter: blur(25px);
-            opacity: 1;
-            z-index: -1;
-        }
+.foreground {
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem; /* Redus pentru ecrane mici */
+    opacity: 1;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
+    z-index: 2; /* Asigură-te că textul este deasupra imaginii de fundal */
+    max-width: 90%;
+    margin-top: 120px; /* Lasă loc pentru secțiunile fixe din partea de sus */
+    margin-bottom: 40px; /* Crează un mic spațiu sub text pentru imagini */
+    padding: 0 10px; /* Evită tăierea textului pe ecrane mici */
+}
 
-        .foreground {
-            position: relative;
-            text-align: center;
-            font-size: 1.3rem;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
-            z-index: 2;
-            max-width: 90%;
-            padding: 20px;
-        }
+.sections {
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Permite meniu pe mai multe rânduri pe mobil */
+    gap: 10px;
+    justify-content: center; /* Centrează secțiunile orizontal */
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.7); /* Adăugăm un fundal ușor transparent */
+    padding: 8px 0;
+}
 
-        .sections {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
-        }
+.section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px; /* Micșorate pentru a încăpea pe ecrane mici */
+    border-radius: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: #333;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem; /* Micșorat pentru ecrane mici */
+}
 
-        .section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 12px 20px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            color: #333;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-            text-align: center;
-        }
+.section:hover {
+    background: rgba(255, 255, 255, 1);
+}
 
-        .section:hover {
-            background: rgba(255, 255, 255, 1);
-        }
+.image-container {
+    display: flex;
+    justify-content: center; /* Centrează imaginile */
+    gap: 10px; /* Redu distanța dintre imagini */
+    padding-top: 20px; /* Adăugăm un spațiu între text și imagini */
+    flex-wrap: wrap; /* Permite imaginilor să se potrivească mai bine pe ecrane mici */
+    margin-bottom: 30px; /* Crează un spațiu la final */
+    width: 100%; /* Face ca imaginile să se adapteze la ecran */
+}
 
-        .image-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding-top: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            width: 100%;
-        }
+.image-container img {
+    width: 100%; /* Imaginile se ajustează la dimensiunea ecranului */
+    max-width: 250px; /* Setează un maxim pentru imagini */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
 
-        .image-container img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-/* Conținutul paginii începe sub secțiuni */
-        .container {
-            margin-top: 80px; /* Evită suprapunerea peste meniu */
-            max-width: 90%;
-            padding: 20px;
-        }
-        /* MEDIA QUERIES - Optimizări pentru mobil */
-        @media (max-width: 768px) {
+/* MEDIA QUERIES - Adaptări pentru mobil */
+@media (max-width: 768px) {
     .foreground {
         font-size: 1.0rem; /* Reduce dimensiunea fontului pe mobil */
         margin-top: 200px; /* Mai mult spațiu sub meniu */
-        z-index: 1;
     }
 
     .sections {
         flex-direction: column;
         align-items: center; /* Centrează meniul pe mobil */
         padding: 0px 0;
-        z-index: 2;
     }
 
     .section {
-        width: 80%; /* Face butoanele mai mari pe mobil */
+        width: 50%; /* Face butoanele mai mari pe mobil */
         text-align: center;
         padding: 5px;
     }
@@ -131,13 +121,12 @@
         flex-direction: column; /* Afișează imaginile pe verticală */
         align-items: center;
     }
-    .container {
-        margin-top: 100px;
-    }
+
     .image-container img {
         max-width: 90%; /* Redimensionează imaginile pentru a evita marginile */
     }
 }
+
     </style>
 </head>
 <body>
