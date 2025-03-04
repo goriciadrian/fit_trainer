@@ -44,7 +44,7 @@ body {
     justify-content: center;
     z-index: 1000; /* Se asigură că rămâne deasupra */
     background: rgba(0, 0, 0, 0.7); /* Fundal semitransparent */
-    padding: 8px 50;
+    padding: 8px 0;
 }
 
 .foreground {
@@ -53,7 +53,7 @@ body {
     font-size: 1.3rem;
     color: white;
     text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
-    z-index: 2; /* Se asigură că este sub secțiuni */
+    z-index: -1; /* Se asigură că este sub secțiuni */
     max-width: 90%;
     padding-top: 20px;
     margin-top: 80px; /* Adaugă spațiu pentru a evita suprapunerea */
