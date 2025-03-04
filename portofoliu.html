@@ -100,7 +100,12 @@
             border-radius: 10px;
             object-fit: cover;
         }
-
+/* Conținutul paginii începe sub secțiuni */
+.container {
+    margin-top: 80px; /* Evită suprapunerea peste meniu */
+    max-width: 90%;
+    padding: 20px;
+}
         /* MEDIA QUERIES - Optimizări pentru mobil */
         @media (max-width: 768px) {
     .foreground {
@@ -124,7 +129,9 @@
         flex-direction: column; /* Afișează imaginile pe verticală */
         align-items: center;
     }
-
+    .container {
+        margin-top: 100px;
+    }
     .image-container img {
         max-width: 90%; /* Redimensionează imaginile pentru a evita marginile */
     }
