@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colaboratori</title>
+    <title>Despre mine</title>
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
 
@@ -15,10 +15,9 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    overflow-y: auto;
-    text-align: center;
+    align-items: center; /* Centrează pe axa verticală */
+    justify-content: flex-start; /* Permite derularea paginii */
+    overflow-y: auto; /* Permite derularea verticală */
 }
 
 .background {
@@ -29,37 +28,43 @@ body {
     height: 100%;
     background: url('home_personal_trainer.webp') no-repeat center center fixed;
     background-size: cover;
-    filter: blur(30px);
+    filter: blur(30px); /* Aplică blur pe fundal */
     opacity: 1;
-    z-index: -1;
+    z-index: -1; /* Asigură că fundalul rămâne în spate */
 }
 
 .foreground {
     position: relative;
-    font-size: 1.2rem;
+    text-align: center;
+    font-size: 1.3rem; /* Redus pentru ecrane mici */
+    opacity: 1;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.8);
+    z-index: 2; /* Asigură-te că textul este deasupra imaginii de fundal */
     max-width: 90%;
-    margin-top: 100px;
-    margin-bottom: 40px;
-    padding: 10px;
+    margin-top: 120px; /* Lasă loc pentru secțiunile fixe din partea de sus */
+    margin-bottom: 40px; /* Crează un mic spațiu sub text pentru imagini */
+    padding: 0 10px; /* Evită tăierea textului pe ecrane mici */
 }
 
 .sections {
     position: fixed;
+    text-align: center;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite meniu pe mai multe rânduri pe mobil */
     gap: 10px;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 8px;
+    justify-content: center; /* Centrează secțiunile orizontal */
     z-index: 2;
+    background: rgba(0, 0, 0, 0.7); /* Adăugăm un fundal ușor transparent */
+    padding: 8px 0;
 }
 
 .section {
     background: rgba(255, 255, 255, 0.9);
-    padding: 12px 20px;
+    padding: 10px 20px; /* Micșorate pentru a încăpea pe ecrane mici */
     border-radius: 10px;
     text-transform: uppercase;
     text-decoration: none;
@@ -68,7 +73,7 @@ body {
     transition: background 0.3s;
     color: #333;
     font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
+    font-size: 1rem; /* Micșorat pentru ecrane mici */
 }
 
 .section:hover {
@@ -77,18 +82,51 @@ body {
 
 .image-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding-top: 20px;
-    margin-bottom: 30px;
+    justify-content: center; /* Centrează imaginile */
+    gap: 10px; /* Redu distanța dintre imagini */
+    padding-top: 20px; /* Adăugăm un spațiu între text și imagini */
+    flex-wrap: wrap; /* Permite imaginilor să se potrivească mai bine pe ecrane mici */
+    margin-bottom: 30px; /* Crează un spațiu la final */
+    width: 100%; /* Face ca imaginile să se adapteze la ecran */
 }
 
 .image-container img {
-    max-width: 90%;
+    width: 100%; /* Imaginile se ajustează la dimensiunea ecranului */
+    max-width: 250px; /* Setează un maxim pentru imagini */
     height: auto;
     border-radius: 10px;
+    object-fit: cover;
 }
+
+/* MEDIA QUERIES - Adaptări pentru mobil */
+@media (max-width: 768px) {
+    .foreground {
+        font-size: 1.0rem; /* Reduce dimensiunea fontului pe mobil */
+        margin-top: 200px; /* Mai mult spațiu sub meniu */
+    }
+
+    .sections {
+        flex-direction: column;
+        align-items: center; /* Centrează meniul pe mobil */
+        padding: 0px 0;
+    }
+
+    .section {
+        width: 50%; /* Face butoanele mai mari pe mobil */
+        text-align: center;
+        padding: 5px;
+    }
+
+    .image-container {
+        flex-direction: column; /* Afișează imaginile pe verticală */
+        align-items: center;
+    }
+
+    .image-container img {
+        max-width: 90%; /* Redimensionează imaginile pentru a evita marginile */
+    }
+}
+
     </style>
 </head>
 <body>
